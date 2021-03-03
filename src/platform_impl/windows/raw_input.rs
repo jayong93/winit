@@ -200,7 +200,7 @@ fn button_flags_to_element_state(
     }
 }
 
-pub fn get_raw_mouse_button_state(button_flags: USHORT) -> [Option<ElementState>; 3] {
+pub fn get_raw_mouse_button_state(button_flags: USHORT) -> [Option<ElementState>; 5] {
     [
         button_flags_to_element_state(
             button_flags,
@@ -216,6 +216,16 @@ pub fn get_raw_mouse_button_state(button_flags: USHORT) -> [Option<ElementState>
             button_flags,
             winuser::RI_MOUSE_RIGHT_BUTTON_DOWN,
             winuser::RI_MOUSE_RIGHT_BUTTON_UP,
+        ),
+        button_flags_to_element_state(
+            button_flags,
+            winuser::RI_MOUSE_BUTTON_4_DOWN,
+            winuser::RI_MOUSE_BUTTON_4_UP,
+        ),
+        button_flags_to_element_state(
+            button_flags,
+            winuser::RI_MOUSE_BUTTON_5_DOWN,
+            winuser::RI_MOUSE_BUTTON_5_UP,
         ),
     ]
 }

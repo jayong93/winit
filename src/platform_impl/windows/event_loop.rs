@@ -2111,7 +2111,7 @@ unsafe extern "system" fn thread_event_target_callback<T: 'static>(
                     }
 
                     let button_state = raw_input::get_raw_mouse_button_state(mouse.usButtonFlags);
-                    // Left, middle, and right, respectively.
+                    // Left, middle, and right, MOUSE_BUTTON_4, MOUSE_BUTTON_5 respectively.
                     for (index, state) in button_state.iter().enumerate() {
                         if let Some(state) = *state {
                             // This gives us consistency with X11, since there doesn't
